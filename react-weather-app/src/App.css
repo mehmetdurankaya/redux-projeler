@@ -1,0 +1,336 @@
+:root{
+    --bodyBg:linear-gradient(to right, #E9E4F0, #083798);
+    --cardBg:rgba(0, 0, 0, .1);
+    --footerItemBg: rgba(0, 0, 0, .2);
+    --modeBg: rgba(0, 0, 0, .12);
+    --footerHover: rgba(0, 0, 0, .4);
+    --fontColor: black;
+    --fontColorDegree: rgba(255, 255, 255, 0.9);
+    --scrollBg:rgb(187, 187, 187);
+    --searchBg: #fff;
+    --boxBg:#fff;
+    --border:black;
+}
+:root[data-theme="dark"]{
+    --bodyBg:linear-gradient(to right, #232526, #414345);
+    --cardBg:rgba(0, 0, 0, .1);
+    --footerItemBg: rgba(255, 255, 255, .2);
+    --modeBg: rgba(255, 255, 255, .3);
+    --footerHover: rgba(255, 255, 255, .4);
+    --fontColor: white;
+    --fontColorDegree: rgba(255, 255, 255, 0.5);
+    --scrollBg:rgb(88, 88, 88);
+    --searchBg:#000;
+    --boxBg:#000;
+    --border:white;
+}
+
+@media screen and (max-width: 900px) {
+    .left{
+        min-width: 90%;
+        margin: 10px auto 0 auto!important;
+        padding-bottom: 10px;
+    }
+    .container{
+        flex-direction: column;
+        position: relative;
+    }
+    .footer{
+        min-width: 90%;
+        max-width: 90%;
+        margin: 0 auto;
+        position: absolute;
+        bottom: 15px;
+    }
+    .content{
+        min-width: 90%;
+        margin: 15px auto!important;
+    }
+    .forecastHourly{
+        min-height: 200px;
+    }
+    .forecastHourly::-webkit-scrollbar{
+        opacity: 0;
+        visibility: hidden!important;
+    }
+    .forecastHourly::-webkit-scrollbar-thumb{
+        opacity: 0;
+        visibility: hidden;
+    }
+    .forecastDaily{
+        min-height: 420px;
+        padding-bottom: 15px;
+        text-align: center;
+    }
+    .forecastDailyCard > p:first-child{
+        font-weight: normal!important;
+        font-size: 14px!important;
+    }
+    
+    .forecastDailyCard > span{
+        display: block!important;
+    }
+    
+  }
+
+body{
+    background: var(--bodyBg);
+    transition: all 1s;
+}
+
+.container {
+    max-width: 1300px;
+    margin: 0 auto;
+    height: 100%;
+    display: flex;
+}
+
+.left{
+    display: flex;
+    flex-direction: column;
+    margin: 10px 25px;
+    width: 30%;
+    border-radius: 25px;
+    transition: all 1s;
+    background-color: var(--cardBg);
+}
+
+.search{
+    margin-top: 15px;
+}
+
+.searchInput{
+    width: 95%;
+    display: flex;
+    align-items: center;
+}
+
+.searchInput > div{
+    margin-left: 15px;
+    width: 100%;
+}
+
+.searchInput > svg{
+    margin-left: 25px;
+    cursor: pointer;
+    transition: all 1s;
+ }
+
+.content{
+    width: 65%;
+    background-color:  var(--cardBg);
+    transition: all 1s;
+    margin: 10px 0;
+    border-radius: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.daily{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.dailyHeader{
+    text-align: center;
+}
+
+.dailyHeader > p{
+    color: var(--fontColor);
+    transition: all 1s;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.dailyHeader > img{
+    width: 200px;
+}
+
+.temp{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.temp > p{
+    margin: 0;
+    margin-top: 10px;
+    color: var(--fontColor);
+    transition: all 1s;
+}
+
+.temp > p:first-child{
+    font-size: 50px;
+}
+
+.temp > p:last-child{
+    font-weight: bold;
+}
+
+.parameters{
+    max-width: 85%;
+    margin: 20px auto 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.parameters > .item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--footerItemBg);
+    transition: all 1s;
+    border-radius: 5px;
+    margin: 3px 0 3px 10px;
+    padding: 5px;
+    color: white;
+    min-width: 20%;
+}
+
+.parameters > .item > img {
+    width: 32px;
+    height: 32px;
+}
+
+.footer{
+    border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 25px;
+    width: 100%;
+    background-color: var(--footerItemBg);
+    transition: all 1s;
+    height: 120px;
+    margin-top: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.darkmode {
+    width: 95%;
+    border-radius: 10px;
+    margin: 5px auto 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--modeBg);
+    transition: all 1s;
+    height: 40px;
+    cursor: pointer;
+    color: var(--fontColor);
+    padding: 3px 0 3px 0;
+}
+
+.footer > .icons{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    height: 40px;
+    padding: 10px;
+    color: var(--fontColor);
+    transition: all 1s;
+}
+
+.footer > .icons > svg{
+    cursor: pointer;
+}
+
+.footer > .icons > svg:hover{
+    color: var(--footerHover);
+}
+
+.footer > p {
+    color: var(--fontColor);
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 5px;
+}
+
+
+.forecastHourly{
+    display: flex;
+    width: 95%;
+    margin: 15px auto 0 auto;
+    overflow: auto;
+    color:var(--fontColor);
+    background-color: var(--cardBg);
+    border-radius: 15px;
+}
+
+.forecastHourly::-webkit-scrollbar{
+    height:.6rem;
+    background: var(--scrollBg);
+    opacity: 1;
+    border-radius: .4rem;
+    visibility: visible;
+}
+
+.forecastHourly::-webkit-scrollbar-thumb{
+    background: var(--modeBg);
+    border-radius: .4rem;
+    height:.8rem;
+}
+
+.card{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.card > img {
+    width: 150px;
+}
+
+.card > span{
+    display: flex;
+}
+
+.card > span > p:last-child{
+    margin-left: 5px;
+    color: var(--fontColorDegree);
+}
+
+.forecastDaily{
+    display: flex;
+    width: 95%;
+    margin: 20px auto 0 auto;  
+    color: var(--fontColor);
+}
+
+.forecastDaily > .forecastDailyCard:first-child{
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+}
+
+.forecastDaily > .forecastDailyCard:last-child{
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+    border-right: none;
+}
+
+.forecastDailyCard{
+    background-color: var(--cardBg);
+    max-height: 300px;
+    min-width: 20%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-right: 1px solid var(--border);
+}
+
+.forecastDailyCard > p:first-child{
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.forecastDailyCard > span{
+    display: flex;
+}
+
+.forecastDailyCard > span > p:last-child {
+    margin-left: 5px;
+    color: var(--fontColorDegree);
+}
